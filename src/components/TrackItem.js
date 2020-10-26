@@ -3,6 +3,9 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 import { Surface, TouchableRipple } from 'react-native-paper'
 
 const styles = StyleSheet.create({
+  flex: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     height: 100,
@@ -28,7 +31,13 @@ const styles = StyleSheet.create({
   },
 })
 
-export const TrackItemInfo = ({ imageUrl, album, artist, track, textColor = 'white' }) =>
+export const TrackItemInfo = ({
+  imageUrl,
+  album,
+  artist,
+  track,
+  textColor = 'white',
+}) =>
   useMemo(
     () => (
       <View style={styles.trackContainer}>
@@ -51,7 +60,7 @@ const TrackItem = (props) => {
       <TouchableRipple
         rippleColor="rgba(206, 137, 100, .32)"
         onPress={() => onPress(props)}
-        style={{ flex: 1 }}
+        style={styles.flex}
       >
         <TrackItemInfo {...props} />
       </TouchableRipple>
