@@ -76,7 +76,6 @@ const TrackPlayer = (props) => {
   return (
     <View
       style={{
-        display: !track.id ? 'none' : 'flex',
         backgroundColor: '#370031',
         position: 'absolute',
         height: 140,

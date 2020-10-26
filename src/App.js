@@ -63,7 +63,7 @@ export default function App() {
   const listFooterComponent = useMemo(
     () => (
       <SafeAreaView forceInset={{ top: 'never', bottom: 'always' }}>
-        {currentTrack.id && <View style={{ height: 120 }} />}
+        {currentTrack.id && <View style={{ height: 130 }} />}
       </SafeAreaView>
     ),
     [currentTrack.id],
@@ -82,11 +82,12 @@ export default function App() {
             <TrackItem {...item} onPress={onItemPress} />
           )}
         />
-        <TrackPlayer
-          tracks={tracks}
-          currentTrack={currentTrack}
-          setCurrentTrack={onItemPress}
-        />
+        {currentTrack.id && (
+          <TrackPlayer
+            currentTrack={currentTrack}
+            setCurrentTrack={onItemPress}
+          />
+        )}
       </LinearGradient>
     </PaperProvider>
   )
